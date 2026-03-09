@@ -1,0 +1,16 @@
+{
+  "sessions": [
+    {
+      "id": "bdff1c52-418f-4429-84c1-ddf39b2ca1f3",
+      "task": "Desenvolvimento API",
+      "project": "Sistema X",
+      "tags": [],
+      "startTime": "2026-03-09T17:04:50.991Z",
+      "endTime": "2026-03-09T17:06:18.852Z",
+      "duration": 87861,
+      "billable": true,
+      "hourlyRate": 0
+    }
+  ],
+  "activeSession": null
+}
