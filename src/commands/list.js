@@ -1,10 +1,12 @@
 import chalk from 'chalk';
 import Table from 'cli-table3';
-import * as timer from '../core/timer.js';
+import { getConfig } from '../../config/manager.js';
+import * as timerService from '../services/timerService.js';
 import * as formatter from '../utils/formatter.js';
 
 export default function listCommand(options) {
-  const sessions = timer.getSessions();
+  const cfg = getConfig();
+  const sessions = timerService.getSessions();
   
   if (sessions.length === 0) {
     console.log(chalk.yellow('ℹ Nenhuma sessão registrada ainda.'));
@@ -30,7 +32,7 @@ export default function listCommand(options) {
       s.id.split('-')[0], // Short ID
       s.task,
       s.project || '-',
-      formatter.formatDateTime(s.startTime),
+      formatter.formatDateTime(s.startTime, cfg),
       formatter.formatMsToDuration(s.duration)
     ]);
   });

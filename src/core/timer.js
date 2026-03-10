@@ -1,12 +1,17 @@
 import crypto from 'crypto';
 import * as storage from './storage.js';
 import * as calculator from './calculator.js';
+import { AppError } from '../errors/AppError.js';
+import { ERROR_CODES } from '../errors/codes.js';
 
 export function startTimer(task, options = {}) {
   const data = storage.loadData();
   
   if (data.activeSession) {
-    throw new Error('Já existe um timer em execução. Pare o atual primeiro.');
+    throw new AppError(
+      ERROR_CODES.TIMER_ACTIVE,
+      'Já existe um timer em execução. Pare o atual primeiro.'
+    );
   }
 
   const newSession = {
@@ -30,7 +35,7 @@ export function stopTimer() {
   const data = storage.loadData();
   
   if (!data.activeSession) {
-    throw new Error('Não há nenhum timer em execução.');
+    throw new AppError(ERROR_CODES.NO_ACTIVE_TIMER, 'Não há nenhum timer em execução.');
   }
 
   const session = data.activeSession;

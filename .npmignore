@@ -1,0 +1,7 @@
+node_modules
+test
+.git
+
+# Local developer data (runtime data now lives in the user's home/XDG dirs)
+data/sessions.json
+

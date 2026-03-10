@@ -12,5 +12,15 @@
       "hourlyRate": 0
     }
   ],
-  "activeSession": null
+  "activeSession": {
+    "id": "320719d1-675f-44cc-ab8e-2ab70beb9705",
+    "task": "Setup do projeto",
+    "project": "Cliente X",
+    "tags": [],
+    "startTime": "2026-03-09T18:42:24.166Z",
+    "endTime": null,
+    "duration": 0,
+    "billable": true,
+    "hourlyRate": 0
+  }
 }

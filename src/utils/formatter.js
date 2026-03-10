@@ -1,8 +1,19 @@
 import { format, intervalToDuration } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
-export function formatDateTime(date) {
-  return format(new Date(date), "dd/MM/yyyy HH:mm", { locale: ptBR });
+const DEFAULTS = {
+  dateTimeFormat: 'dd/MM/yyyy HH:mm',
+  dateFormat: 'dd/MM/yyyy'
+};
+
+export function formatDateTime(date, config = null) {
+  const fmt = config?.dateTimeFormat || DEFAULTS.dateTimeFormat;
+  return format(new Date(date), fmt, { locale: ptBR });
+}
+
+export function formatDate(date, config = null) {
+  const fmt = config?.dateFormat || DEFAULTS.dateFormat;
+  return format(new Date(date), fmt, { locale: ptBR });
 }
 
 export function formatTime(date) {

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ttrack-cli sessions schema v1",
+  "type": "object",
+  "required": ["schemaVersion", "sessions", "activeSession"],
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 1 },
+    "sessions": { "type": "array" },
+    "activeSession": { "type": ["object", "null"] }
+  },
+  "additionalProperties": true
+}
+

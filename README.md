@@ -31,6 +31,7 @@ npm link
 | `ftt list` | Lista as últimas sessões | `ftt list --limit 5` |
 | `ftt report` | Gera relatórios de tempo | `ftt report --week` |
 | `ftt export` | Exporta dados (json/csv) | `ftt export --format csv` |
+| `ftt config` | Gerencia preferências do usuário | `ftt config set hourlyRate 150` |
 
 ### Opções de Filtro (Report e Export)
 - `--today`: Apenas hoje.
@@ -41,11 +42,28 @@ npm link
 
 ## 📁 Estrutura do Projeto
 
-- `bin/`: Ponto de entrada da CLI.
-- `src/core/`: Lógica central (timer, armazenamento, cálculos).
-- `src/commands/`: Implementação de cada comando da CLI.
-- `src/utils/`: Utilitários de formatação e validação.
-- `data/`: Local onde as sessões são armazenadas localmente em JSON.
+O projeto utiliza uma arquitetura modular baseada em serviços para separação de responsabilidades:
+
+- **`bin/ftt.js`**: Ponto de entrada da CLI, utilizando `commander` e um wrapper de erro centralizado.
+- **`src/services/`**: Camada de orquestração (Timer, Report, Export) que conecta os comandos à lógica de negócio.
+- **`src/core/`**: Lógica central do domínio:
+  - `storage.js`: Persistência atômica e segura em arquivos JSON.
+  - `timer.js`: Máquina de estado para controle de sessões.
+  - `calculator.js`: Cálculos de duração e faturamento.
+- **`src/commands/`**: Implementação dos comandos CLI (list, start, stop, etc.).
+- **`src/errors/`**: Tratamento de erros padronizado com códigos específicos.
+- **`src/logger/`**: Sistema de logs estruturados direcionados para `stderr`.
+- **`config/`**: Gerenciador de configurações do usuário (hourlyRate, currency, etc.).
+- **`data/schema/`**: Definições de schema e lógica de migração automática.
+- **`src/utils/`**: Utilitários para formatação de datas, moedas e validações.
+- **`test/`**: Suíte de testes unitários com `node:test`.
+
+## ⚙️ Configuração e Persistência
+
+Os dados do usuário (sessões e configurações) são armazenados seguindo os padrões XDG/Home do sistema operacional:
+- **Configuração**: `~/.config/ftt-cli/config.json` (ou equivalente).
+- **Dados**: `~/.local/share/ftt-cli/sessions.json` (ou equivalente).
+- **Legado**: O sistema migra automaticamente dados antigos de `./data/sessions.json` para o novo local no primeiro uso.
 
 ## 🧪 Testes
 

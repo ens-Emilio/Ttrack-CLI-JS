@@ -1,10 +1,10 @@
 import chalk from 'chalk';
-import * as timer from '../core/timer.js';
+import * as timerService from '../services/timerService.js';
 import * as formatter from '../utils/formatter.js';
 import * as calculator from '../core/calculator.js';
 
 export default function statusCommand() {
-  const session = timer.getActiveSession();
+  const session = timerService.getActiveSession();
   
   if (!session) {
     console.log(chalk.yellow('ℹ Não há nenhum timer em execução no momento.'));
