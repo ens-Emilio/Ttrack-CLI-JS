@@ -31,7 +31,7 @@ npm install -g ttrack-cli
 
 **Executando localmente (Desenvolvimento):**
 \`\`\`bash
-git clone https://github.com/seu-usuario/ttrack-cli.git
+git clone https://github.com/ens-Emilio/Ttrack-CLI-JS.git
 cd ttrack-cli
 npm install
 npm link
