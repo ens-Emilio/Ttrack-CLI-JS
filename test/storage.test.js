@@ -25,7 +25,7 @@ function withTempHome(fn) {
 }
 
 describe('Storage', () => {
-  it('deve migrar automaticamente dados v0 (sem schemaVersion) para v1 e persistir', () => {
+  it('deve migrar automaticamente dados v0 (sem schemaVersion) para a versão atual e persistir', () => {
     withTempHome(() => {
       const { dataFile } = getAppPaths();
       fs.mkdirSync(path.dirname(dataFile), { recursive: true });
@@ -37,10 +37,13 @@ describe('Storage', () => {
       fs.writeFileSync(dataFile, JSON.stringify(v0, null, 2));
 
       const loaded = storage.loadData();
-      expect(loaded.schemaVersion).to.equal(1);
+      expect(loaded.schemaVersion).to.equal(4);
+      expect(loaded.projects).to.deep.equal([]);
+      expect(loaded.clients).to.deep.equal([]);
+      expect(loaded.templates).to.deep.equal([]);
 
       const reread = JSON.parse(fs.readFileSync(dataFile, 'utf8'));
-      expect(reread.schemaVersion).to.equal(1);
+      expect(reread.schemaVersion).to.equal(4);
     });
   });
 

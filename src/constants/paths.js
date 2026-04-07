@@ -41,7 +41,8 @@ export function getAppPaths() {
     configDir,
     dataDir,
     configFile: path.join(configDir, 'config.json'),
-    dataFile: path.join(dataDir, 'sessions.json')
+    dataFile: path.join(dataDir, 'sessions.json'),
+    dbFile: path.join(dataDir, 'ttrack.db')
   };
 }
 

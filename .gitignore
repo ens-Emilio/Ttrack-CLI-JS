@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Data & Database
+data/sessions.json
+data/*.db
+data/*.db-wal
+data/*.db-shm
+*.db
+*.db-wal
+*.db-shm
+
+# Backups & Exports
+ttrack-backup-*.json
+export-*.json
+export-*.csv
+export-*.pdf
+invoice-*.md
+ttrack-sync-*.ics
+
+# Environment
+.env
+.env.local
+
+# OS Files
+.DS_Store
+Thumbs.db

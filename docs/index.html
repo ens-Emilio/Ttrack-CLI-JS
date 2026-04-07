@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTrack CLI — O Time Tracker Definitivo para Desenvolvedores</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    
+    <header>
+        <nav class="container">
+            <div class="logo">⏱️ <span>TTrack</span> CLI</div>
+            <div class="nav-links">
+                <a href="#features">Recursos</a>
+                <a href="#quickstart">Guia Rápido</a>
+                <a href="https://github.com/seu-usuario/ttrack-cli" class="btn-github">GitHub</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <div class="hero-content">
+                <h1>O Time Tracker de terminal definitivo.</h1>
+                <p>Offline-first com SQLite, predições por IA e dashboards incríveis direto no seu console.</p>
+                <div class="cta-group">
+                    <div class="install-bar" id="copy-install">
+                        <code>npm install -g ttrack-cli</code>
+                        <button title="Copiar comando">📋</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">ttrack-cli — bash</span>
+                </div>
+                <div class="terminal-body" id="terminal-content">
+                    <div class="line"><span class="prompt">$</span> <span class="typed">ftt dashboard</span></div>
+                    <div class="output-delayed">
+                        <pre class="ascii-chart">
+🚀 Dashboard de Produtividade
+
+Hoje: 5h | Receita: R$ 750,00
+Meta Diária:   █████████████░░░░░░░ 62.5%
+Semana: 10h 5m | Receita: R$ 1.500,00
+
+       5.00 ┼            ╭ 
+       2.50 ┤            │ 
+       0.00 ┼────────────╯ 
+  De 25/03 até 07/04
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features container">
+            <h2 class="section-title">Por que o TTrack?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">🧠</div>
+                    <h3>Inteligência Artificial</h3>
+                    <p>Auto-categorização de tarefas e predição de duração baseada no seu histórico.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h3>Dashboards ASCII</h3>
+                    <p>Gráficos de linha, heatmaps e análise de eficiência direto no terminal.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🗄️</div>
+                    <h3>SQLite Nativo</h3>
+                    <p>Performance extrema e dados sempre seguros no seu disco local.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🔄</div>
+                    <h3>Sync Ecossistema</h3>
+                    <p>Sincronização nativa com Toggl Track e exportação para Google Calendar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🎮</div>
+                    <h3>Gamificação</h3>
+                    <p>Mantenha seus streaks ativos e desbloqueie conquistas de produtividade.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🤖</div>
+                    <h3>Webhooks</h3>
+                    <p>Notificações automáticas no Slack e Discord ao iniciar suas tarefas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="quickstart" class="quickstart container">
+            <h2 class="section-title">Comece em segundos</h2>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-num">1</span>
+                    <p>Instale globalmente via NPM</p>
+                    <code>npm i -g ttrack-cli</code>
+                </div>
+                <div class="step">
+                    <span class="step-num">2</span>
+                    <p>Inicie sua primeira tarefa</p>
+                    <code>ftt s "Minha tarefa" -p "Projeto"</code>
+                </div>
+                <div class="step">
+                    <span class="step-num">3</span>
+                    <p>Veja sua mágica acontecer</p>
+                    <code>ftt dash</code>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 TTrack CLI. Distribuído sob a licença ISC.</p>
+            <p>Feito com ☕ e terminal por desenvolvedores.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
